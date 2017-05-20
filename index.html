@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Commit Collector</title> 
+    <link rel="stylesheet" type="text/css" href="css/style.css?<?php echo time(); ?>">
+</head>
+
+<body>
+<div class="container">  
+
+  <form id="jira-search" action="display_issues.php" method="get">
+    <h4>Find your lost GitHub commits :)</h4>
+    <fieldset>
+      <input placeholder="Enter JIRA project name here" name="jira_project" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="jira-search-submit" data-submit="...Sending">Display issues</button>
+    </fieldset>
+  </form>
+
+  <form id="jira-search" action="jira.php" method="get">
+    <fieldset>
+      <input placeholder="Enter JIRA issue ID here" name="jira_issue" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="jira-search-submit" data-submit="...Sending">Get GitHub information</button>
+    </fieldset>
+  </form>
+</div>
+</body>
+
