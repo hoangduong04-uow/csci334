@@ -69,7 +69,7 @@
       $issue_id = $issue['key'];
       //$info['name'] = $issue['fields']['issuetype']['description'];
       //print_r($info);
-      echo "<tr><td><a href=\"jira.php?jira_issue=$issue_id&submit=\">$issue_id</a></td><td>".$issue['fields']['issuetype']['description']."</td></tr>";
+      echo "<tr><td><a href=\"jira.php?jira_issue=$issue_id&submit=\">$issue_id</a></td><td>".$issue['fields']['summary']."</td></tr>";
     }
     echo "</table>";
     ?>
