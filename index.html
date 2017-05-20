@@ -8,9 +8,9 @@
 
 <body>
 <div class="container">  
-
-  <form id="jira-search" action="display_issues.php" method="get">
-    <h4>Find your lost GitHub commits :)</h4>
+<fieldset id="jira-search">
+  <form action="display_issues.php" method="get">
+    <h4>Enter project name :)</h4>
     <fieldset>
       <input placeholder="Enter JIRA project name here" name="jira_project" type="text" tabindex="1" required autofocus>
     </fieldset>
@@ -19,7 +19,8 @@
     </fieldset>
   </form>
 
-  <form id="jira-search" action="jira.php" method="get">
+  <form action="jira.php" method="get">
+  <h4>Or enter specific issue ID</h4>
     <fieldset>
       <input placeholder="Enter JIRA issue ID here" name="jira_issue" type="text" tabindex="1" required autofocus>
     </fieldset>
@@ -27,6 +28,7 @@
       <button name="submit" type="submit" id="jira-search-submit" data-submit="...Sending">Get GitHub information</button>
     </fieldset>
   </form>
+  </fieldset>
 </div>
 </body>
 

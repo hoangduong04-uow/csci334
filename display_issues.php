@@ -6,7 +6,7 @@
     $qdrop = "DROP TABLE IF EXISTS `CSCI334`.`".$table."`";
 
     $project = $_GET['jira_project'];
-    $url = "https://issues.apache.org/jira/rest/api/2/search?jql=project=$project";//."&maxResults=5000";
+    $url = "https://issues.apache.org/jira/rest/api/2/search?jql=project=$project"."&maxResults=5000";
     $issue_collection_json = file_get_contents($url);
     $issue_collection_array = json_decode($issue_collection_json, true);
 
@@ -52,8 +52,8 @@
 <head>
     <meta charset="utf-8" />
     <title>Commit Collector</title> 
-    <!--<link rel="stylesheet" type="text/css" href="css/style.css?<?php echo time(); ?>">
-    <link rel="stylesheet" type="text/css" href="css/jira.css?<?php echo time(); ?>">-->
+    <link rel="stylesheet" type="text/css" href="css/style.css?<?php echo time(); ?>">
+    <link rel="stylesheet" type="text/css" href="css/display_issues.css?<?php echo time(); ?>">
 </head>
 
 <body>
@@ -64,17 +64,20 @@
 
     <?php
     $collection = $issue_collection_array['issues'];
-    echo "<table><tr><th>ID</th><th>Name</th></tr>";
+    echo "<table><tr><th>ID</th><th>Name</th><th>Type</th><th>Priority</th></tr>";
     foreach ($collection as $issue) {
       $issue_id = $issue['key'];
       //$info['name'] = $issue['fields']['issuetype']['description'];
       //print_r($info);
-      echo "<tr><td><a href=\"jira.php?jira_issue=$issue_id&submit=\">$issue_id</a></td><td>".$issue['fields']['summary']."</td></tr>";
+      echo "<tr><td><a href=\"jira.php?jira_issue=$issue_id&submit=\">$issue_id</a></td><td>".$issue['fields']['summary']."</td><td>".$issue['fields']['issuetype']['name']."</td><td>".$issue['fields']['priority']['name']."</td></tr>";
     }
     echo "</table>";
     ?>
+    </div>
+    </div>
+</body>
 
-  <pre>
+<pre>
   <?php
     echo "=====================matches======================================<br>";
     print_r($collection);
@@ -90,5 +93,3 @@
     */
   ?>
   </pre>
-
-</body>

@@ -22,7 +22,7 @@
         $commit_count++;
       }
       
-      preg_match('/^.* pull request.*\s*(https:.*)/im', $content, $matches2, PREG_OFFSET_CAPTURE);
+      preg_match('/^.* pull request.*:\s*(https:.*)/im', $content, $matches2, PREG_OFFSET_CAPTURE);
       if((!($matches2[1][0] == "" || $matches2[1][0] == "\n")) && (!($matches[1][0] == "" || $matches[1][0] == "\n"))) {
         $url[] = $matches2[1][0].'/commits/'.$matches[1][0];
         $pull_count++;
